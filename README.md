@@ -49,9 +49,21 @@ I will design and make a program that checks temperature and humidity for two cl
 
 
 ## Record of Tasks
-| Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
-|---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Write the Problem context                        | 10min         | Nov 22                 | A         |
+**Task No**|**Planned Action**|**Planned Outcome**|**Time estimate**|**Target completion date**|**Criterion**
+:-----:|:-----:|:-----:|:-----:|:-----:|:-----:
+1|Write the Problem context|Problem definition|10min|Nov 21|A
+2|Read proposed solution|Have a better understanding of what we have to do and write our design statement|10min|Nov 21|A
+3|Get materials|Have usb cable, adaptor, arduino and DHT11|2min|Nov 21|A
+4|Set up DHT11 to Arduino|The DHT11 connected to the GND, ports 12 and 13 to get 5v  |1min|Nov 21|C
+5|Edit and load Learning Log program to our Arduino|Fully set up Arduino and DHT11|10min|Nov 24|C
+6|Begin coding to fullfill the needs of our clients|A code that will read the data collected by the arduino and the DHT11|15min|Nov 26|C
+7|Make the code create and then append the data into two sepparate csv files|Two files titled "temperature.csv" and "humidity.csv" that store data in new lines|20min|Nov 26|C
+8|Create an mvp (minimal viable product "prototype")/ Could be part of criteria C|Approval from clients to continue|10min|Nov 26| 
+9|Run our program inside our room to collect data|At least 48 hrs of data, both temperature and humidity|50hr|Nov 26 to 27|C
+10|Revise our data and consult to Dr Ruben in order to make improvements to our program and data collection|Feedback on better practices on how to store our data|10min|Nov 29| 
+11|Format the data collection so that its saved in a new line everytime|A better way on how to stroe our data along with the exact date and time when it was taken|10min|Nov 29|C
+12|Creat a prodgram to grapn our data|Tow different graphs of temperature and humidity|20mi|Dec 2| 
+13|Re-run our program |Collect at least another 48hrs of data with new format|50hr|Dec 7 to 8| 
 
 ## Test Plan
 
