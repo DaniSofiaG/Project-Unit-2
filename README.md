@@ -1,11 +1,13 @@
-# Project-Unit-2
+ # Project-Unit-2
 
 ![giphy](https://user-images.githubusercontent.com/111941990/202969030-338b256b-aff1-4e3c-bd06-5f7e37bd59da.gif)
 
 
 # Unit 2: A Distributed Weather Station for ISAK
 
-## Criteria A: Planning
+
+# Criteria A: Planning
+
 
 ## Problem definition
 Emile and Ainne are two resource-limited roommates at UWC ISAK Japan worried about their health, as they’ve seen on a tiktok that the the temperature and humidity in their room can cause health issues. They’ve started leaving a thermometer so that they can see the temperature of the room and check it once a day before going to sleep, but the task has become tedious and inaccurate since they often forget to check it and it's very restricted to their room, which means they don’t know the value of this data relative to the temperature and humidity of the campus. It is also difficult to compare the data they get from the thermometer, and they have no way to measure humidity. Ainne and Emile are in need of a cost effective, more efficient way to get and visualize both the humidity and temperature of their room and the campus along with other useful measures of the data such as mean, standard deviation, minimum, maximum, and median.
