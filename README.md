@@ -41,7 +41,8 @@ I will design and make a program that checks temperature and humidity for two cl
 # Criteria B: Design
 
 ## System Diagram **SL**
-![](sysdim_sl.png)
+![systemdiagram-project2](https://user-images.githubusercontent.com/89135778/206943633-4ebb5abd-441d-414f-bc6a-ac610d2c82a8.png)
+
 
 **Fig.1** shows the system diagram for the proposed solution (**SL**). The indoor variables will be measured using an Arduino microprocessor and the sensor DHT11 conencted to the local computer (Laptop) located inside a room. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally.
 
