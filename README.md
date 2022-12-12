@@ -69,6 +69,8 @@ I will design and make a program that checks temperature and humidity for two cl
 
 ## Test Plan
 
+## Flow diagrams
+
 # Criteria C: Development
 
 ## List of techniques used
