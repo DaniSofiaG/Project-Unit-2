@@ -41,14 +41,8 @@ I will design and make a program that checks temperature and humidity for two cl
 # Criteria B: Design
 
 ## System Diagram **SL**
-![systemdiagram-project2](https://user-images.githubusercontent.com/89135778/206943633-4ebb5abd-441d-414f-bc6a-ac610d2c82a8.png)
-
-
+![systemdiagram-project2 drawio](https://user-images.githubusercontent.com/89135778/207327393-314b295f-e8ba-446f-aebc-027906263f98.png)
 **Fig.1** shows the system diagram for the proposed solution (**SL**). The indoor variables will be measured using an Arduino microprocessor and the sensor DHT11 conencted to the local computer (Laptop) located inside a room. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally.
-
-![](sysdim_hl.png)
-
-**Fig.2** shows the system diagram for the proposed solution (**HL**). The indoor variables will be measured using a Raspberry PI and four DHT11 sensors located inside a room. Four sensors are used to determine more precisely the physical values and include measurement uncertainty. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally and POST to the server using the API and TOKEN authentication. A laptop computer is used for remotely controlling the local Rasberry Pi using a Dekptop sharing application (VNC Viewer). (Optional) Data from the local raspberry is downloaded to the laptop for analysis and processing.
 
 
 ## Record of Tasks
