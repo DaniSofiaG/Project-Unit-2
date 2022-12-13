@@ -80,6 +80,61 @@ I will design and make a program that checks temperature and humidity for two cl
 
 ## List of techniques used
 
+## All Code
+
+### Arduino data recollection
+Our clients Ainée and Emile need a cheap and effecive way to recollect data for atleast 48 hrs and collect that data into two spereate cvs files where the the date in which it was taken is also saved.
+```.py
+from datetime import datetime
+
+import serial
+import time
+import matplotlib.pyplot as plt
+
+
+arduino = serial.Serial(port='/dev/cu.usbserial-110', baudrate=9600, timeout=.1)
+
+
+def read():
+    data = ""
+    while len(data) < 1:
+        data = arduino.readline()
+    return data
+
+
+while True:
+    time.sleep(300)
+    value = read() #wait until data is in the port
+    msg = value.decode('utf-8')
+    if not "Hello" in msg:
+        hum, temp = msg.split(" ")
+        temp = temp.split(":")[1][0:-3]
+        temp += "\n"
+        hum = hum.split(":")[1][0:-1]
+
+        print("temp", temp)
+        print("hum", hum)
+
+        with open('temperature.csv', 'a') as file:
+            file.write(f"{temp},{datetime.now()}")
+
+        with open('humidity.csv', 'a') as file:
+            file.write(f"{hum},{datetime.now()}")
+            file.write("\n")
+```
+<img width="694" alt="Screen Shot 2022-12-13 at 22 54 36" src="https://user-images.githubusercontent.com/111941990/207349846-4bc5df33-e8fa-448d-97bd-552a630d6547.png">
+<img width="313" alt="Screen Shot 2022-12-13 at 22 56 58" src="https://user-images.githubusercontent.com/111941990/207349896-3f0e6c21-7298-464c-94b9-e2b6c1087a85.png">
+<img width="313" alt="Screen Shot 2022-12-13 at 22 56 58" src="https://user-images.githubusercontent.com/111941990/207350024-9127e453-9bea-44b1-b51e-9c4235afa033.png">
+
+### R3-12 Mathematical Models and Graphing
+Our clients Ainée and Emile, require mathematical models, to better understand the data they have collected. tFor this section of the code to function, I had to create a function in side my project_library which is a separate python file inside the same project. I imported the function so that I could use it in my program with the inputs inputs from Ms Sato.
+
+
+<img width="612" alt="Screen Shot 2022-12-13 at 23 00 53" src="https://user-images.githubusercontent.com/111941990/207352433-3802bc5f-7609-4f6c-b22a-746d6ca538f1.png">
+<img width="489" alt="Screen Shot 2022-12-13 at 23 01 26" src="https://user-images.githubusercontent.com/111941990/207352465-c51f31a4-7e9d-44e7-b424-d2aa0df4eaa1.png">
+<img width="494" alt="Screen Shot 2022-12-13 at 23 01 34" src="https://user-images.githubusercontent.com/111941990/207352574-2806b274-f733-4ef2-936a-30e4c3c41ab0.png">
+
+
 ## Development
 
 
