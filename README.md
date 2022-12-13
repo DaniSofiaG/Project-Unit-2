@@ -93,10 +93,15 @@ I will design and make a program that checks temperature and humidity for two cl
 - Graphing with matplot
 - Mathematical modul
 - Data Science
+
+
+## Development
 ## All Code
 
 ### Arduino data recollection
-Our clients Ainée and Emile need a cheap and effecive way to recollect data for atleast 48 hrs and collect that data into two spereate cvs files where the the date in which it was taken is also saved.
+Our clients Ainée and Emile need a cheap and effecive way to recollect data for atleast 48 hrs and collect that data into two spereate cvs files where the the date in which it was taken is also saved. This is in orde to contribute to the a cost effective, more efficient way to get and visualize both the humidity and temperature of their room and the campus along with other useful measures of the data such as mean, standard deviation, minimum, maximum, and median.
+
+
 ```.py
 from datetime import datetime
 
@@ -140,7 +145,7 @@ while True:
 <img width="313" alt="Screen Shot 2022-12-13 at 22 56 58" src="https://user-images.githubusercontent.com/111941990/207350024-9127e453-9bea-44b1-b51e-9c4235afa033.png">
 
 ### R3-12 Mathematical Models and Graphing
-Our clients Ainée and Emile, require mathematical models, to better understand the data they have collected. For this section of the project we ahve decided to create figuures in which the graphs are shown as plot s and then as scatter with the quadratic and linear models, that way the clients can see their data through both models while still comparing it to the raw graphs that are above on the figure.
+Our clients Ainée and Emile, require mathematical models, to better understand the data they have collected. For this section of the project we have decided to create figuures in which the graphs are shown as plot s and then as scatter with the quadratic and linear models, that way the clients can see their data through both models while still comparing it to the raw graphs that are above on the figure. The figure and subplots is a great way to format our graphs, awell as the quadratic and linear models, becuase they are clear and easy to read which will contribute to the effectiveness of our solution for the problem
 ```.py
 # TEMPERATURE MATHEMATICAL MODEL
 import numpy as np
@@ -242,9 +247,6 @@ plt.show()
 <img width="612" alt="Screen Shot 2022-12-13 at 23 00 53" src="https://user-images.githubusercontent.com/111941990/207352433-3802bc5f-7609-4f6c-b22a-746d6ca538f1.png">
 <img width="489" alt="Screen Shot 2022-12-13 at 23 01 26" src="https://user-images.githubusercontent.com/111941990/207352465-c51f31a4-7e9d-44e7-b424-d2aa0df4eaa1.png">
 <img width="494" alt="Screen Shot 2022-12-13 at 23 01 34" src="https://user-images.githubusercontent.com/111941990/207352574-2806b274-f733-4ef2-936a-30e4c3c41ab0.png">
-
-
-## Development
 
 
 # Criteria D: Functionality
