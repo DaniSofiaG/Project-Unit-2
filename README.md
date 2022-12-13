@@ -70,7 +70,12 @@ I will design and make a program that checks temperature and humidity for two cl
 20|Another way to support the visualization of our solution|A system diagram|10min|Dec11|B
 
 ## Test Plan
-
+|            Test            |                                 Description                                 |                  Procedure                 |                                                                                 Expected Output                                                                                 |
+|:--------------------------:|:---------------------------------------------------------------------------:|:------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|    Unit test of Arduino    |           This test is evaluating how we get data from the sensor           |        1. Run the program arduino.py       | The program should access to the sensor and be able to get different humidity and temperature values. If there is no conexion to the sensor, a error message will be displayed. |
+|    Unit test of Arduino    | This test is evaluating how we put the data from the sensor into a csv file |        1. Run the program arduino.py       |                                The program should put the values of temperature and humidity that it is getting from the sensor into a csv file.                                |
+|  Unit test of Server Data  |       This test is evaluating how we get data from the external server      | 1. Run the program comparative_analysis.py |                 The program should access to the data stored on the server and be able to put it in lists according to if it is humidity or temperature values.                 |
+| Unit test of Data Analysis |          This test is evaluating the data analysis for the program.         | 1. Run the program comparative_analysis.py |        The program should print the mean, the median, the minimum, the maximum and the standard deviation of the humidity and temperature from the sensor and the server.       |
 ## Flow diagrams
 ![flowcharts-project2](https://user-images.githubusercontent.com/89135778/207318982-60e019bc-4c61-4c6f-a2c5-53cf6b5f5405.png)
 ![flowcharts2-project2-Page-2 drawio](https://user-images.githubusercontent.com/89135778/207319231-c944f7cb-27ac-4e5d-bc52-b2dd29e05469.png)
