@@ -248,6 +248,78 @@ plt.show()
 <img width="489" alt="Screen Shot 2022-12-13 at 23 01 26" src="https://user-images.githubusercontent.com/111941990/207352465-c51f31a4-7e9d-44e7-b424-d2aa0df4eaa1.png">
 <img width="494" alt="Screen Shot 2022-12-13 at 23 01 34" src="https://user-images.githubusercontent.com/111941990/207352574-2806b274-f733-4ef2-936a-30e4c3c41ab0.png">
 
+### Sensors Mathematical Models and Graphing
+Our clients Ainée and Emile, require mathematical models, to better understand the data they have collected. For this section of the project we have decided to create figuures in which the graphs are shown as plot s and then as scatter with the quadratic and linear models, that way the clients can see their data through both models while still comparing it to the raw graphs that are above on the figure. The figure and subplots is a great way to format our graphs, awell as the quadratic and linear models, becuase they are clear and easy to read which will contribute to the effectiveness of our solution for the problem
+
+```.py
+import requests
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+req = requests.get('http://192.168.6.142/readings')
+data = req.json()
+readings = data["readings"][0]
+# print(data)
+# 1 = temp
+# 2 = humidity
+
+T = []
+H = []
+for r in readings:
+    if r["sensor_id"] == 5:
+        T.append(r["value"])
+    elif r["sensor_id"] == 4:
+        H.append(r["value"])
+
+print("This is T:", T)
+print("This is H:", H)
+
+#plt.plot(T)
+#plt.plot(H)
+#plt.show()
+
+# Calculate the mean and the standard deviation every 576 values (48h = 576x5min)
+h_samples_per_hour = 12
+h_mean_per_hour = []
+h_standard_per_hour = []
+h_x_per_hour = []
+hour = 0
+for i in range(0, len(T)-6, h_samples_per_hour):
+    data = T[i:i + h_samples_per_hour]
+    h_mean_per_hour.append(sum(data) / h_samples_per_hour)
+    h_standard_per_hour.append(np.std(data))
+    h_x_per_hour.append(hour)
+    hour += 1
+
+print("Mean per hour:", h_mean_per_hour)
+print("Standard per hour:", h_standard_per_hour)
+print("X per hour:", h_x_per_hour)
+print("Hour:", hour)
+
+
+
+# Create error plot for temperature and then repeat for humidity
+plt.style.use('ggplot')
+fig = plt.figure(figsize=(10, 9))
+plt.subplot(3, 1, 1)
+plt.plot(T)
+plt.subplot(3, 1, 2)
+plt.plot(h_x_per_hour, h_mean_per_hour)
+plt.subplot(3, 1, 3)
+plt.plot(h_x_per_hour, h_mean_per_hour)
+plt.errorbar(h_x_per_hour, h_mean_per_hour, h_standard_per_hour, fmt='-')
+
+plt.show()
+```
+<img width="614" alt="Screen Shot 2022-12-13 at 21 30 28" src="https://user-images.githubusercontent.com/111941990/207367520-00b9f3e5-3ae1-44ba-a718-17113b7c45d8.png">
+<img width="605" alt="Screen Shot 2022-12-13 at 21 30 21" src="https://user-images.githubusercontent.com/111941990/207367594-75b23838-501b-49e7-bb4c-22f4b22a629b.png">
+
+<img width="613" alt="Screen Shot 2022-12-13 at 23 58 38" src="https://user-images.githubusercontent.com/111941990/207367786-84c4fce8-a56c-4fa0-b9ce-9e0383c93030.png">
+
+<img width="729" alt="Screen Shot 2022-12-13 at 23 58 50" src="https://user-images.githubusercontent.com/111941990/207367805-91f51687-836e-4463-9000-920eb9657bcc.png">
+<img width="613" alt="Screen Shot 2022-12-13 at 23 58 55" src="https://user-images.githubusercontent.com/111941990/207367816-21e95257-ed95-4154-8822-b15c571f4551.png">
+
 
 # Criteria D: Functionality
 
