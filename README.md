@@ -242,6 +242,8 @@ plt.show()
 # Criteria D: Functionality
 
 A 7 min video demonstrating the proposed solution with narration
+## Video link
+https://drive.google.com/drive/folders/1SSqhvUkaG8pWogq_jChNZEX0F_UyxXR-?usp=sharing
 
 
 # Poster
