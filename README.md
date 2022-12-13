@@ -320,6 +320,116 @@ plt.show()
 <img width="729" alt="Screen Shot 2022-12-13 at 23 58 50" src="https://user-images.githubusercontent.com/111941990/207367805-91f51687-836e-4463-9000-920eb9657bcc.png">
 <img width="613" alt="Screen Shot 2022-12-13 at 23 58 55" src="https://user-images.githubusercontent.com/111941990/207367816-21e95257-ed95-4154-8822-b15c571f4551.png">
 
+## Comparative analysis
+
+```.py
+import matplotlib.pyplot as plt
+import numpy as np
+import statistics
+import requests
+
+with open('humidity.csv', newline='') as file:
+    reader = file.readlines()
+hum = []
+for line in reader:
+    h, date = line.strip().split(",")
+    hum.append(float(h))
+
+with open('temperature.csv') as file:
+    reader = file.readlines()
+tem = []
+for line in reader:
+    t, date = line.strip().split(",")
+    tem.append(float(t))
+
+# Mean and Standard deviation
+mean = []
+standard_dev = []
+for i in range(len(hum)):
+    data = [hum[i], tem[i]]
+    mean.append(np.mean(data))
+    standard_dev.append(np.std(data))
+
+print(mean)
+print(standard_dev)
+
+# Mean and standard deviation
+count = 0
+for i in hum:
+    count += i
+
+mean_hum = count/len(hum)
+print(mean_hum)
+
+count = 0
+for i in tem:
+    count += i
+
+mean_tem = count/len(tem)
+print(mean_tem)
+
+# Median
+median_hum = statistics.median(hum)
+median_tem = statistics.median(tem)
+print(median_hum, median_tem)
+
+# Minimum and maximum
+print(f"Minimum number in humidity is {min(hum)}")
+print(f"Maximum number in humidity is {max(hum)}")
+print(f"Minimum number in temperature is {min(tem)}")
+print(f"Maximum number in temperature is {max(tem)}")
+
+# Sensor data
+req = requests.get('http://192.168.6.142/readings')
+data = req.json()
+readings = data["readings"][0]
+
+T = []
+H = []
+for r in readings:
+    if r["sensor_id"] == 5:
+        T.append(r["value"])
+    elif r["sensor_id"] == 4:
+        H.append(r["value"])
+
+# Calculate the mean and the standard deviation every 576 values (48h = 576x5min)
+h_samples_per_hour = 12
+h_mean_per_hour = []
+h_standard_per_hour = []
+h_x_per_hour = []
+hour = 0
+for i in range(0, len(T)-6, h_samples_per_hour):
+    data = T[i:i + h_samples_per_hour]
+    h_mean_per_hour.append(sum(data) / h_samples_per_hour)
+    h_standard_per_hour.append(np.std(data))
+    h_x_per_hour.append(hour)
+    hour += 1
+
+print("Mean per hour:", h_mean_per_hour)
+print("Standard per hour:", h_standard_per_hour)
+print("X per hour:", h_x_per_hour)
+print("Hour:", hour)
+
+
+
+# Create error plot for temperature and then repeat for humidity
+plt.style.use('ggplot')
+fig = plt.figure(figsize=(10, 9))
+plt.subplot(3, 1, 1)
+plt.plot(T)
+plt.subplot(3, 1, 2)
+plt.plot(h_x_per_hour, h_mean_per_hour)
+plt.subplot(3, 1, 3)
+plt.plot(h_x_per_hour, h_mean_per_hour)
+plt.errorbar(h_x_per_hour, h_mean_per_hour, h_standard_per_hour, fmt='-')
+
+plt.show()
+```
+<img width="767" alt="Screen Shot 2022-12-14 at 0 00 59" src="https://user-images.githubusercontent.com/111941990/207368466-d4fc440e-49d3-45c9-890c-aa90da694cd1.png">
+<img width="858" alt="Screen Shot 2022-12-14 at 0 01 06" src="https://user-images.githubusercontent.com/111941990/207368485-013ce0f9-90fd-43e6-8589-60e42f8f7206.png">
+<img width="846" alt="Screen Shot 2022-12-14 at 0 01 12" src="https://user-images.githubusercontent.com/111941990/207368502-cf4d7b6c-2ea4-43d1-9efa-9123de55230e.png">
+
+<img width="1424" alt="Screen Shot 2022-12-14 at 0 00 44" src="https://user-images.githubusercontent.com/111941990/207368716-3c2a471a-b58a-4174-ba16-3d12bbf14373.png">
 
 # Criteria D: Functionality
 
