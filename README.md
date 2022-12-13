@@ -84,7 +84,15 @@ I will design and make a program that checks temperature and humidity for two cl
 # Criteria C: Development
 
 ## List of techniques used
-
+- Functions
+- If statements
+- For loops
+- While loops
+- Imports
+- GET from API
+- Graphing with matplot
+- Mathematical modul
+- Data Science
 ## All Code
 
 ### Arduino data recollection
