@@ -99,7 +99,7 @@ I will design and make a program that checks temperature and humidity for two cl
 ## All Code
 
 ### Arduino data recollection
-Our clients Ainée and Emile need a cheap and effecive way to recollect data for atleast 48 hrs and collect that data into two spereate cvs files where the the date in which it was taken is also saved. This is in orde to contribute to the a cost effective, more efficient way to get and visualize both the humidity and temperature of their room and the campus along with other useful measures of the data such as mean, standard deviation, minimum, maximum, and median.
+Our clients Ainée and Emile need a cheap and effecive way to recollect data for atleast 48 hrs and collect that data into two spereate cvs files where the the date in which it was taken is also saved. This is in orde to contribute to the a cost effective, more efficient way to get and visualize both the humidity and temperature of their room and the campus along with other useful measures of the data such as mean, standard deviation, minimum, maximum, and median. Something that was very significant for the development of all parts was the proper formating and recollenction of our data in csv files
 
 
 ```.py
@@ -321,6 +321,7 @@ plt.show()
 <img width="613" alt="Screen Shot 2022-12-13 at 23 58 55" src="https://user-images.githubusercontent.com/111941990/207367816-21e95257-ed95-4154-8822-b15c571f4551.png">
 
 ## Comparative analysis
+Our clients Ainée and Emile, want relevant values to better understand the data they have collectes. For this part we've used the skills that we have learned during class and identified some relevant values using the succes criteria and in addition other relevant data. Some of this values are the minimum, the maximum, the mean deviation, the median. We've collected this values for bot the sensor data and the R3-12 room E data.
 
 ```.py
 import matplotlib.pyplot as plt
