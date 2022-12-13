@@ -78,6 +78,9 @@ I will design and make a program that checks temperature and humidity for two cl
 ## Test Plan
 
 ## Flow diagrams
+![flowcharts-project2](https://user-images.githubusercontent.com/89135778/207318982-60e019bc-4c61-4c6f-a2c5-53cf6b5f5405.png)
+![flowcharts2-project2-Page-2 drawio](https://user-images.githubusercontent.com/89135778/207319231-c944f7cb-27ac-4e5d-bc52-b2dd29e05469.png)
+
 
 # Criteria C: Development
 
