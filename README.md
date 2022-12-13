@@ -132,7 +132,103 @@ while True:
 <img width="313" alt="Screen Shot 2022-12-13 at 22 56 58" src="https://user-images.githubusercontent.com/111941990/207350024-9127e453-9bea-44b1-b51e-9c4235afa033.png">
 
 ### R3-12 Mathematical Models and Graphing
-Our clients Ainée and Emile, require mathematical models, to better understand the data they have collected. tFor this section of the code to function, I had to create a function in side my project_library which is a separate python file inside the same project. I imported the function so that I could use it in my program with the inputs inputs from Ms Sato.
+Our clients Ainée and Emile, require mathematical models, to better understand the data they have collected. For this section of the project we ahve decided to create figuures in which the graphs are shown as plot s and then as scatter with the quadratic and linear models, that way the clients can see their data through both models while still comparing it to the raw graphs that are above on the figure.
+```.py
+# TEMPERATURE MATHEMATICAL MODEL
+import numpy as np
+from matplotlib import pyplot as plt
+
+#Get data
+with open('temperature.csv', newline='') as file:
+    reader = file.readlines()
+
+temp = []
+for line in readewith open('temperature.csv', newline='') as file:
+    reader = file.readlines()
+
+temp = []
+for line in reader:
+    t, date = line.strip().split(",")
+    temp.append(float(t))
+
+x = np.arange(len(temp))
+hum2 = temp[0:580]r:
+    t, date = line.strip().split(",")
+    temp.append(float(t))
+
+x = np.arange(len(temp))
+hum2 = temp[0:580]
+
+#QUADRATIC MODEL y2
+a,b,c = np.polyfit(x,hum2, 2)
+for i in x:
+    y2 = ((x**2)*a) + (b*x) + c
+
+#LINEAR MODEL y3
+m,b = np.polyfit(x,hum2, 1)
+for i in x:
+    y3 = (m*x)+b
+
+#GRAPHING
+fig=plt.figure(figsize=(9,6))
+plt.subplot(2,1,1)
+plt.plot(temp)
+plt.xlabel('Time')
+plt.ylabel('Temperature')
+
+plt.subplot(2,1,2) #MODEL
+plt.scatter(x,hum2)
+line1, = plt.plot(y3,color='green',label='Linear')
+line2, = plt.plot(y2,color='red', label='Quadratic')
+plt.xlabel('Time')
+plt.ylabel('Temperature')
+plt.legend(handles=[line1, line2])
+
+
+# HUMIDITY MATHEMATICAL MODEL
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+#DATA
+with open('humidity.csv', newline='') as file:
+    reader = file.readlines()
+
+hum = []
+for line in reader:
+    t, date = line.strip().split(",")
+    hum.append(float(t))
+
+x = np.arange(len(hum))
+best_fit = hum[0:580]
+
+#QUADRATIC MODEL y2
+a,b,c = np.polyfit(x, best_fit, 2)
+for i in x:
+    y2 = ((x**2)*a) + (b*x) + c
+
+#LINEAR MODEL y3
+m,b = np.polyfit(x, best_fit, 1)
+for i in x:
+    y3 = (m*x)+b
+
+#GRAPHING HUM
+fig=plt.figure(figsize=(9,6))
+plt.subplot(2,1,1)
+plt.plot(hum)
+plt.xlabel('Date')
+plt.ylabel('Humidity')
+
+plt.subplot(2,1,2) #MODEL
+plt.scatter(x, best_fit)
+line1, = plt.plot(y3,color='green',label='Linear')
+line2, = plt.plot(y2,color='red', label='Quadratic')
+plt.xlabel('Date')
+plt.ylabel('Humidity')
+plt.legend(handles=[line1, line2])
+
+plt.show()
+```
 
 
 <img width="612" alt="Screen Shot 2022-12-13 at 23 00 53" src="https://user-images.githubusercontent.com/111941990/207352433-3802bc5f-7609-4f6c-b22a-746d6ca538f1.png">
