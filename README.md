@@ -92,3 +92,8 @@ I will design and make a program that checks temperature and humidity for two cl
 # Criteria D: Functionality
 
 A 7 min video demonstrating the proposed solution with narration
+
+
+# Poster
+![1](https://user-images.githubusercontent.com/111941990/207320927-b9de2b15-014b-4c90-a76c-3e5d0a80fdc1.png)
+![2](https://user-images.githubusercontent.com/111941990/207320969-7d28bc18-c125-4693-9c17-21ddb3493c3d.png)
